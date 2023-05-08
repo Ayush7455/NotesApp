@@ -1,4 +1,4 @@
-import  {React,useState} from "react";
+import  {React,useEffect,useState} from "react";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider } from "native-base";
 import {Alert,ActivityIndicator, StatusBar} from "react-native"
 import {sendPasswordResetEmail} from "firebase/auth"
@@ -6,8 +6,12 @@ import {auth} from "../Firebase/Firebase.config"
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons';
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const ForgetPasswordScreen = () => {
+  const isDarkModeOn = useContext(DarkModeContext);
+  console.log(isDarkModeOn)
   const navigation=useNavigation()
     const [email,setEmail]=useState("")
   const [loading,setLoading]=useState("")

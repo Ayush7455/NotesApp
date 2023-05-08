@@ -5,8 +5,12 @@ import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import {auth} from "../Firebase/Firebase.config"
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const LoginScreen = () => {
+  const isDarkModeOn = useContext(DarkModeContext);
+  console.log(isDarkModeOn)
     const navigation=useNavigation();
     const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")

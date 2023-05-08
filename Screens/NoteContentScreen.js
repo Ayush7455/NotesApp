@@ -3,8 +3,12 @@ import {  Text, VStack, Button, Center, NativeBaseProvider,View,Box } from "nati
 import { StatusBar, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation ,useRoute} from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons';
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const ModifyNotesScreen = () => {
+  const isDarkModeOn = useContext(DarkModeContext);
+  console.log(isDarkModeOn)
     const navigation=useNavigation()
     const [service, setService] = React.useState("");
     const {note}=useRoute().params;

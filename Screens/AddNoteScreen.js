@@ -8,7 +8,10 @@ import {app} from "../Firebase/Firebase.config"
 import {auth} from "../Firebase/Firebase.config"
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 const AddNoteScreen = () => {
+  const isDarkModeOn = useContext(DarkModeContext);
   const navigation=useNavigation()
   const [priority, setPriority] = React.useState("")
   const [title,setTitle]=React.useState("")
@@ -45,7 +48,7 @@ const AddNoteScreen = () => {
     }
   };
   return (
-    <>
+  <>
     <StatusBar barStyle={"dark-content"}
         backgroundColor="#F0F0F0"/>
   <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>

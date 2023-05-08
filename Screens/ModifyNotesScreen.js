@@ -13,9 +13,10 @@ import { auth } from "../Firebase/Firebase.config";
 import { app } from "../Firebase/Firebase.config";
 import { TouchableOpacity } from "react-native";
 import { StatusBar } from "react-native";
-
-
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 const ModifyNotesScreen = () => {
+  const isDarkModeOn = useContext(DarkModeContext);
   const navigation=useNavigation();
   const [priority, setPriority] = React.useState("");
   const[title,setTitle]=React.useState("")

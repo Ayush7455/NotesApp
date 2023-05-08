@@ -10,8 +10,11 @@ import { getFirestore } from 'firebase/firestore';
 import { doc, setDoc ,getDocs,collection,deleteDoc} from "firebase/firestore"; 
 import {app} from "../Firebase/Firebase.config"
 import {auth} from "../Firebase/Firebase.config"
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const NotesScreen=()=>{
+  const isDarkModeOn = useContext(DarkModeContext);
     const navigation=useNavigation()
     const Drawer = createDrawerNavigator();
     const [notes, setNotes] = useState([]);

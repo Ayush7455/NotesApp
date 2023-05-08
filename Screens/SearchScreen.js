@@ -14,8 +14,11 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import NoteItem from "../Components/NoteItem";
 import SearchNoteItem from "../Components/SearchNoteItem";
 import { Center, useNativeBase } from "native-base";
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const SearchScreen = () => {
+    const isDarkModeOn = useContext(DarkModeContext);
     const navigation=useNavigation();
   const { notes } = useRoute().params;
   const [searchInput, setSearchInput] = useState("");

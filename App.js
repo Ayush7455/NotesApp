@@ -12,11 +12,12 @@ import LoginScreen from "./Screens/LoginScreen";
 import SignUpScreen from "./Screens/SignUpScreen";
 import ForgetPasswordScreen from "./Screens/ForgetPasswordScreen";
 import NoteContentScreen from "./Screens/NoteContentScreen";
+import { DarkModeProvider } from "./Context/DarkModeContext";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const HomeStack = ({ toggleDarkMode }) => {
   return (
     <Stack.Navigator initialRouteName="LoginScreen" screenOptions={{
       headerShown: false
@@ -34,13 +35,19 @@ const HomeStack = () => {
 };
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator drawerContent={(props) => <CustomDrawerHeader {...props}/>}  screenOptions={{headerShown:false}}>
+  const [isDarkModeOn, setIsDarkModeOn] = useState(false);
 
-        <Drawer.Screen name="Home" component={HomeStack}  />
+  const toggleDarkMode = () => {
+    setIsDarkModeOn(!isDarkModeOn);
+  };
+  return (
+    <DarkModeProvider value={isDarkModeOn}>
+    <NavigationContainer>
+      <Drawer.Navigator drawerContent={(props) => <CustomDrawerHeader {...props} toggleDarkMode={toggleDarkMode}/>}  screenOptions={{headerShown:false}}>
+        <Drawer.Screen name="Home" component={HomeStack} />
       </Drawer.Navigator>
     </NavigationContainer>
+    </DarkModeProvider>
   );
 };
 

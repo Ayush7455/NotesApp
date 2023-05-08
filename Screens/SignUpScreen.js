@@ -15,8 +15,11 @@ import {createUserWithEmailAndPassword} from "firebase/auth";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const SignUpScreen = () => {
+  const isDarkModeOn = useContext(DarkModeContext);
   const navigation=useNavigation()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
