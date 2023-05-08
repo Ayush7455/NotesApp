@@ -30,21 +30,21 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 </kbd>
 
 
-#### Our Profile
+#### Notes Screen
 
 
 <kbd>
-<img src="https://raw.githubusercontent.com/Ayush7455/Screenshots/main/Screenshot_20230209_004631.jpg" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010010.jpg?raw=true" height="540" >
 </kbd>
 
-#### Other Users Profile
+#### Search Screen
 
 
 <kbd>
-<img src="https://raw.githubusercontent.com/Ayush7455/Screenshots/main/Screenshot_20230209_004713.jpg" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010032.jpg?raw=true" height="540" >
 </kbd>
 
-#### Settings
+#### Add Note Screen
 
 
 <kbd>
@@ -52,11 +52,11 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 </kbd>
 
 
-#### Search Users
+#### Drawer Navigator
 
 
 <kbd>
-<img src="https://raw.githubusercontent.com/Ayush7455/Screenshots/main/Screenshot_20230209_005353.jpg" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010021.jpg?raw=true" height="540" >
 </kbd>
 
 #### Chat Screen
