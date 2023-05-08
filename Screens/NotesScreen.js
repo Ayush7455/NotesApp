@@ -15,11 +15,11 @@ const NotesScreen=()=>{
     <SafeAreaView style={{alignItems:"center",height:"100%"}}>
         <StatusBar/>
         <View style={{flexDirection:"row",alignItems:"center",marginBottom:20}}>
-        <TouchableOpacity onPress={() => navigation.openDrawer()} style={{backgroundColor:"#4F46E5",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10,marginRight:"5%"}}>
+        <TouchableOpacity onPress={() => navigation.openDrawer()} style={{backgroundColor:"black",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10,marginRight:"5%"}}>
             <Feather name="menu" size={24} color="white" />
             </TouchableOpacity>
             <Text style={{color:"black",fontSize:40,marginRight:"40%"}}>Notes</Text>
-            <TouchableOpacity onPress={()=>{navigation.navigate("SearchScreen")}} style={{backgroundColor:"#4F46E5",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10}}>
+            <TouchableOpacity onPress={()=>{navigation.navigate("SearchScreen")}} style={{backgroundColor:"black",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10}}>
             <AntDesign name="search1" size={24} color="white" />
             </TouchableOpacity>
            
@@ -28,7 +28,7 @@ const NotesScreen=()=>{
         <NoteItem color="#91F48F"/>
         <NoteItem color="#FFF599"/>
         <NoteItem color="#FFF599"/>
-        <TouchableOpacity onPress={()=>{navigation.navigate("AddNoteScreen")}} style={{backgroundColor:"#4F46E5",height:60,width:60,alignItems:"center",justifyContent:"center",borderRadius:30,position:"absolute",bottom:40,right:"6%",elevation:10}}>
+        <TouchableOpacity onPress={()=>{navigation.navigate("AddNoteScreen")}} style={{backgroundColor:"black",height:60,width:60,alignItems:"center",justifyContent:"center",borderRadius:30,position:"absolute",bottom:40,right:"6%",elevation:10}}>
         <AntDesign name="plus" size={24} color="white" />
             </TouchableOpacity>
 

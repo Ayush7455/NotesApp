@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -11,6 +11,7 @@ import ModifyNotesScreen from "./Screens/ModifyNotesScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import SignUpScreen from "./Screens/SignUpScreen";
 import ForgetPasswordScreen from "./Screens/ForgetPasswordScreen";
+import NoteContentScreen from "./Screens/NoteContentScreen";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -27,15 +28,16 @@ const HomeStack = () => {
       <Stack.Screen name="ModifyNotesScreen" component={ModifyNotesScreen} />
       <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
       <Stack.Screen name="ForgetPasswordScreen" component={ForgetPasswordScreen} />
+      <Stack.Screen name="NoteContentScreen" component={NoteContentScreen} />
     </Stack.Navigator>
   );
 };
 
 const App = () => {
-  const userName = 'Ayush Rastogi';
   return (
     <NavigationContainer>
-      <Drawer.Navigator drawerContent={(props) => <CustomDrawerHeader {...props} userName={userName} />}  screenOptions={{headerShown:false}}>
+      <Drawer.Navigator drawerContent={(props) => <CustomDrawerHeader {...props}/>}  screenOptions={{headerShown:false}}>
+
         <Drawer.Screen name="Home" component={HomeStack}  />
       </Drawer.Navigator>
     </NavigationContainer>

@@ -1,47 +1,119 @@
-import * as React from "react";
-import { Box, Heading, VStack, FormControl, Input, Button, Center, NativeBaseProvider } from "native-base";
+import {React, useState} from "react";
+import {
+  Box,
+  Heading,
+  VStack,
+  FormControl,
+  Input,
+  Button,
+  Center,
+  NativeBaseProvider,
+} from "native-base";
+import {Alert, ActivityIndicator} from "react-native";
+import {auth} from "../Firebase/Firebase.config";
+import {createUserWithEmailAndPassword} from "firebase/auth";
 
 const SignUpScreen = () => {
-  return <Center w="100%">
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handlesignup = () => {
+    setLoading(true);
+    if (confirmpassword === password) {
+      if (email.trim() === "" || password.trim() === "") {
+        setLoading(false);
+        Alert.alert("Email and password cannot be empty");
+        return;
+      }
+      createUserWithEmailAndPassword(auth, email.trim(), password.trim())
+        .then(() => {
+          setLoading(false);
+          Alert.alert("Successfully Registered");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+        })
+        .catch((error) => {
+          setLoading(false);
+          Alert.alert("Error", error.message);
+        });
+    } else {
+      setLoading(false);
+      Alert.alert("Password and Confirm Password do not match");
+    }
+  };
+
+  return (
+    <Center w="100%">
       <Box safeArea p="2" w="90%" maxW="290" py="8">
-        <Heading size="lg" color="coolGray.800" _dark={{
-        color: "warmGray.50"
-      }} fontWeight="semibold">
+        <Heading
+          size="lg"
+          color="coolGray.800"
+          _dark={{
+            color: "warmGray.50",
+          }}
+          fontWeight="semibold"
+        >
           Welcome to Notes App
         </Heading>
-        <Heading mt="1" color="coolGray.600" _dark={{
-        color: "warmGray.200"
-      }} fontWeight="medium" size="xs">
+        <Heading
+          mt="1"
+          color="coolGray.600"
+          _dark={{
+            color: "warmGray.200",
+          }}
+          fontWeight="medium"
+          size="xs"
+        >
           Sign up to continue!
         </Heading>
         <VStack space={3} mt="5">
           <FormControl>
             <FormControl.Label>Email</FormControl.Label>
-            <Input />
+            <Input
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
           </FormControl>
           <FormControl>
             <FormControl.Label>Password</FormControl.Label>
-            <Input type="password" />
+            <Input
+              type="password"
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+            />
           </FormControl>
           <FormControl>
             <FormControl.Label>Confirm Password</FormControl.Label>
-            <Input type="password" />
+            <Input
+              type="password"
+              onChangeText={(text) => setConfirmPassword(text)}
+              value={confirmpassword}
+            />
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
-            Sign up
-          </Button>
+          {loading ? (
+            <ActivityIndicator color={"#3897f0"} />
+          ) : (
+            <Button mt="2" colorScheme="indigo" onPress={handlesignup}>
+              Sign up
+            </Button>
+          )}
         </VStack>
       </Box>
-    </Center>;
+    </Center>
+  );
 };
 
-    export default () => {
-        return (
-          <NativeBaseProvider>
-            <Center flex={1} px="3">
-                <SignUpScreen />
-            </Center>
-          </NativeBaseProvider>
-        );
-    };
-    
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Center flex={1} px="3">
+        <SignUpScreen />
+      </Center>
+    </NativeBaseProvider>
+  );
+};

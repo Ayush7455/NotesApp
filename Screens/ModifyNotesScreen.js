@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View } from "native-base";
+import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon } from "native-base";
 import { TextInput } from "react-native";
 
 const ModifyNotesScreen = () => {
+  const [service, setService] = React.useState("");
   return <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
@@ -18,6 +19,16 @@ const ModifyNotesScreen = () => {
          <View>
             <TextInput placeholder="Description" multiline={true} style={{fontSize:20}} maxLength={200}></TextInput>
          </View>
+         <Box maxW="300">
+        <Select selectedValue={service} minWidth="200" accessibilityLabel="Choose Priority" placeholder="Choose Priority" _selectedItem={{
+        bg: "teal.600",
+        endIcon: <CheckIcon size="5" />
+      }} mt={1} onValueChange={itemValue => setService(itemValue)}>
+          <Select.Item label="High" value="ux" />
+          <Select.Item label="Medium" value="web" />
+          <Select.Item label="Low" value="cross" />
+        </Select>
+      </Box>
           <Button mt="2" colorScheme="indigo">
         Modify
           </Button>
