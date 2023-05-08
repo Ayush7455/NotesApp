@@ -1,4 +1,5 @@
 import * as React from "react";
+import { v4 as uuidv4 } from 'uuid';
 import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon} from "native-base";
 import { Alert, TextInput } from "react-native";
 import { getFirestore } from 'firebase/firestore';
@@ -7,19 +8,10 @@ import {app} from "../Firebase/Firebase.config"
 import {auth} from "../Firebase/Firebase.config"
 const AddNoteScreen = () => {
   const [priority, setPriority] = React.useState("")
-  const [color, setColor] = React.useState("")
   const [title,setTitle]=React.useState("")
   const[description,setDescription]=React.useState("")
+  const noteId=uuidv4()
   const handleSaveNote = async () => {
-    if(priority==0){
-      setColor("#91F48F")
-    }
-    else if(priority==1){
-      setColor("#FFF599")
-    }
-    else if(priority==2){
-      setColor("#FF9E9E")
-    }
     try {
       const db = getFirestore(app);
       const currentUser = auth.currentUser;
@@ -32,10 +24,15 @@ const AddNoteScreen = () => {
         title: title,
         description: description,
         priority: priority,
-        color:color
+        color:
+          priority === "2"
+            ? "#FF9E9E"
+            : priority === "1"
+            ? "#FFF599"
+            : "#91F48F",
+            uniqueId:noteId // set color based on priority
       };
-      const docRef = doc(notesRef);
-      await setDoc(docRef, newNote);
+      await setDoc(doc(notesRef, noteId), newNote);
       Alert.alert("Note added successfully!");
       setTitle("");
       setDescription("");
