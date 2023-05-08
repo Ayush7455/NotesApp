@@ -55,7 +55,7 @@ const SignUpScreen = () => {
   return (
     <>    
     <StatusBar barStyle={"dark-content"}
-        backgroundColor="#F0F0F0"/>
+        backgroundColor="white"/>
     <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
   <AntDesign name="arrowleft" size={24} color="black" />
   </TouchableOpacity>

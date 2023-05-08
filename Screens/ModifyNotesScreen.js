@@ -1,6 +1,6 @@
 import * as React from "react";
 import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon } from "native-base";
-import { TextInput,Alert } from "react-native";
+import { TextInput,Alert,ActivityIndicator } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons';
 import {
@@ -20,15 +20,23 @@ const ModifyNotesScreen = () => {
   const navigation=useNavigation();
   const [priority, setPriority] = React.useState("");
   const[title,setTitle]=React.useState("")
+  const [loading,setLoading]=React.useState(false)
   const[description,setDescription]=React.useState("")
   const {note}=useRoute().params
   const noteId=note.uniqueId
   const UpdateNote = async () => {
+    setLoading(true)
+    if(title==""){
+      Alert.alert("Title cannot be empty")
+      setLoading(false)
+    }
+    else{
     try {
       const db = getFirestore(app);
       const currentUser = auth.currentUser;
       if (!currentUser) {
         throw new Error("User not found");
+        setLoading(false)
       }
       const userId = currentUser.uid;
       const notesRef = collection(db, "users", userId, "notes");
@@ -46,10 +54,12 @@ const ModifyNotesScreen = () => {
             uniqueId:noteId // set color based on priority
       });
       Alert.alert("Note updated Successfully")
+      setLoading(false)
       navigation.navigate("NotesScreen")
     } catch (error) {
       console.log(error);
     }
+  }
   };
   return (
   
@@ -82,9 +92,11 @@ const ModifyNotesScreen = () => {
           <Select.Item label="Low" value="0" />
         </Select>
       </Box>
+      {loading?<ActivityIndicator color={"#3897f0"}/>:
           <Button onPress={UpdateNote}mt="2" colorScheme="indigo">
         Modify
           </Button>
+}
           
         </VStack>
       </Box>

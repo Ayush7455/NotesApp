@@ -1,7 +1,7 @@
 import * as React from "react";
 import { v4 as uuidv4 } from 'uuid';
 import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon} from "native-base";
-import { Alert, SafeAreaView, StatusBar, TextInput, TouchableOpacity } from "react-native";
+import { Alert, SafeAreaView, StatusBar, TextInput, TouchableOpacity,ActivityIndicator } from "react-native";
 import { getFirestore } from 'firebase/firestore';
 import { doc, setDoc ,collection} from "firebase/firestore"; 
 import {app} from "../Firebase/Firebase.config"
@@ -14,15 +14,24 @@ const AddNoteScreen = () => {
   const isDarkModeOn = useContext(DarkModeContext);
   const navigation=useNavigation()
   const [priority, setPriority] = React.useState("")
+  const [loading,setLoading]=React.useState(false)
   const [title,setTitle]=React.useState("")
   const[description,setDescription]=React.useState("")
   const noteId=uuidv4()
   const handleSaveNote = async () => {
+    setLoading(true)
+    if(title==""){
+      Alert.alert("Title cannot be empty")
+      setLoading(false)
+    }
+    else{
     try {
       const db = getFirestore(app);
       const currentUser = auth.currentUser;
+
       if (!currentUser) {
         throw new Error("User not found");
+        setLoading(false)
       }
       const userId = currentUser.uid;
       const notesRef = collection(db, "users", userId, "notes");
@@ -40,12 +49,15 @@ const AddNoteScreen = () => {
       };
       await setDoc(doc(notesRef, noteId), newNote);
       Alert.alert("Note added successfully!");
+      setLoading(false)
       setTitle("");
       setDescription("");
       setPriority("");
-    } catch (error) {
+   } catch (error) {
       console.log(error);
     }
+  }
+
   };
   return (
     <>
@@ -72,18 +84,22 @@ const AddNoteScreen = () => {
             <TextInput placeholder="Description" multiline={true} style={{fontSize:20,color:isDarkModeOn?"white":"black"}} color={isDarkModeOn?"white":"black"} maxLength={200}onChangeText={(text)=>setDescription(text)} value={description} placeholderTextColor={isDarkModeOn?"gray":"black"}></TextInput>
          </View>
          <Box maxW="300">
-        <Select selectedValue={priority} minWidth="200" accessibilityLabel="Choose Priority" placeholder="Choose Priority" _selectedItem={{
+        <Select   selectedValue={priority} minWidth="200" accessibilityLabel="Choose Priority" placeholder="Choose Priority" _selectedItem={{
         bg: "teal.600",
-        endIcon: <CheckIcon size="5" />
-      }} mt={1} onValueChange={itemValue => setPriority(itemValue)}>
+        endIcon: <CheckIcon size="5"/>,
+        _text: { color: "white" }
+      }} mt={1} onValueChange={itemValue => setPriority(itemValue)} colorScheme="dark" >
           <Select.Item label="High" value="2" />
           <Select.Item label="Medium" value="1" />
           <Select.Item label="Low" value="0" />
         </Select>
       </Box>
+      {loading?<ActivityIndicator color={"#3897f0"}/>:
           <Button onPress={handleSaveNote} mt="2" colorScheme="indigo">
-        Save
-          </Button>
+          Save
+            </Button>
+}
+          
           
         </VStack>
       </Box>
