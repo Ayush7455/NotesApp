@@ -1,7 +1,7 @@
 import * as React from "react";
 import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon } from "native-base";
 import { TextInput,Alert } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   collection,
   doc,
@@ -13,6 +13,7 @@ import { app } from "../Firebase/Firebase.config";
 
 
 const ModifyNotesScreen = () => {
+  const navigation=useNavigation();
   const [priority, setPriority] = React.useState("");
   const[title,setTitle]=React.useState("")
   const[description,setDescription]=React.useState("")
@@ -32,8 +33,16 @@ const ModifyNotesScreen = () => {
         title:title,
         description:description,
         priority:priority,
+        color:
+          priority === "2"
+            ? "#FF9E9E"
+            : priority === "1"
+            ? "#FFF599"
+            : "#91F48F",
+            uniqueId:noteId // set color based on priority
       });
       Alert.alert("Note updated Successfully")
+      navigation.navigate("NotesScreen")
     } catch (error) {
       console.log(error);
     }
