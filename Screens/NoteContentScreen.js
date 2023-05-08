@@ -1,14 +1,22 @@
 import * as React from "react";
 import {  Text, VStack, Button, Center, NativeBaseProvider,View,Box } from "native-base";
-import { TextInput } from "react-native";
+import { StatusBar, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation ,useRoute} from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
 
 const ModifyNotesScreen = () => {
     const navigation=useNavigation()
     const [service, setService] = React.useState("");
     const {note}=useRoute().params;
     console.log(note);
-  return <Center w="100%">
+  return (
+<>
+<StatusBar barStyle={"dark-content"}
+        backgroundColor="#F0F0F0"/>
+  <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
+       <AntDesign name="arrowleft" size={24} color="black" />
+       </TouchableOpacity>
+    <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="300">
        
 
@@ -25,8 +33,10 @@ const ModifyNotesScreen = () => {
           
         </VStack>
       </Box>
-    </Center>;
-};
+    </Center>
+    </>
+  )
+}
 
     export default () => {
         return (
@@ -35,6 +45,6 @@ const ModifyNotesScreen = () => {
                 <ModifyNotesScreen />
             </Center>
           </NativeBaseProvider>
-        );
-    };
+        )
+    }
     

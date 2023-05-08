@@ -9,11 +9,15 @@ import {
   Center,
   NativeBaseProvider,
 } from "native-base";
-import {Alert, ActivityIndicator} from "react-native";
+import {Alert, ActivityIndicator, StatusBar} from "react-native";
 import {auth} from "../Firebase/Firebase.config";
 import {createUserWithEmailAndPassword} from "firebase/auth";
+import { TouchableOpacity } from "react-native";
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 
 const SignUpScreen = () => {
+  const navigation=useNavigation()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
@@ -46,6 +50,12 @@ const SignUpScreen = () => {
   };
 
   return (
+    <>    
+    <StatusBar barStyle={"dark-content"}
+        backgroundColor="#F0F0F0"/>
+    <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
+  <AntDesign name="arrowleft" size={24} color="black" />
+  </TouchableOpacity>
     <Center w="100%">
       <Box safeArea p="2" w="90%" maxW="290" py="8">
         <Heading
@@ -105,8 +115,10 @@ const SignUpScreen = () => {
         </VStack>
       </Box>
     </Center>
-  );
-};
+    </>
+
+  )
+}
 
 export default () => {
   return (

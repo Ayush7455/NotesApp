@@ -2,6 +2,7 @@ import * as React from "react";
 import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon } from "native-base";
 import { TextInput,Alert } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
 import {
   collection,
   doc,
@@ -10,6 +11,8 @@ import {
 } from "firebase/firestore";
 import { auth } from "../Firebase/Firebase.config";
 import { app } from "../Firebase/Firebase.config";
+import { TouchableOpacity } from "react-native";
+import { StatusBar } from "react-native";
 
 
 const ModifyNotesScreen = () => {
@@ -47,7 +50,15 @@ const ModifyNotesScreen = () => {
       console.log(error);
     }
   };
-  return <Center w="100%">
+  return (
+  
+  <>
+  <StatusBar barStyle={"dark-content"}
+        backgroundColor="#F0F0F0"/>
+  <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
+       <AntDesign name="arrowleft" size={24} color="black" />
+       </TouchableOpacity>
+  <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
         color: "warmGray.50"
@@ -78,7 +89,9 @@ const ModifyNotesScreen = () => {
           
         </VStack>
       </Box>
-    </Center>;
+    </Center>
+    </>
+    )
 };
 
     export default () => {

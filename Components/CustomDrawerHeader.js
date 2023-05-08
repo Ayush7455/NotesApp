@@ -25,7 +25,17 @@ const CustomDrawerHeader = () => {
     }).catch((error) => {
       console.log("Error signing out:", error);
     });
+    
   }
+  const [switchValue, setSwitchValue] = useState(0);
+
+  const handleSwitchValueChange = (value) => {
+    if (value) {
+      setSwitchValue(1);
+    } else {
+      setSwitchValue(0);
+    }
+  };
   return (
     <NativeBaseProvider>
     <View style={{ padding: 16 }}>
@@ -34,7 +44,7 @@ const CustomDrawerHeader = () => {
       <HStack alignItems="center" space={4} style={{marginTop:"10%"}}>
       <Ionicons name="moon" size={24} color="black" />
       <Text style={{fontSize:15}}>Dark Mode</Text>
-      <Switch size="md" />
+      <Switch  onValueChange={handleSwitchValueChange} size="md" />
     </HStack>
     <TouchableOpacity onPress={handleLogout}>
     <HStack alignItems="center" space={4} style={{marginTop:"10%"}}>

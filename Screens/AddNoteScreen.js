@@ -1,12 +1,15 @@
 import * as React from "react";
 import { v4 as uuidv4 } from 'uuid';
 import {  Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider,View,Select, Box, CheckIcon} from "native-base";
-import { Alert, TextInput } from "react-native";
+import { Alert, SafeAreaView, StatusBar, TextInput, TouchableOpacity } from "react-native";
 import { getFirestore } from 'firebase/firestore';
 import { doc, setDoc ,collection} from "firebase/firestore"; 
 import {app} from "../Firebase/Firebase.config"
 import {auth} from "../Firebase/Firebase.config"
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 const AddNoteScreen = () => {
+  const navigation=useNavigation()
   const [priority, setPriority] = React.useState("")
   const [title,setTitle]=React.useState("")
   const[description,setDescription]=React.useState("")
@@ -41,7 +44,15 @@ const AddNoteScreen = () => {
       console.log(error);
     }
   };
-  return <Center w="100%">
+  return (
+    <>
+    <StatusBar barStyle={"dark-content"}
+        backgroundColor="#F0F0F0"/>
+  <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
+  <AntDesign name="arrowleft" size={24} color="black" />
+  </TouchableOpacity>
+  
+  <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
         color: "warmGray.50"
@@ -77,7 +88,9 @@ const AddNoteScreen = () => {
           
         </VStack>
       </Box>
-    </Center>;
+    </Center>
+    </>
+    )
 };
 
     export default () => {

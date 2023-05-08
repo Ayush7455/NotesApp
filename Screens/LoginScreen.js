@@ -1,6 +1,6 @@
 import {React,useState} from "react";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider } from "native-base";
-import { ActivityIndicator,Alert } from "react-native";
+import { ActivityIndicator,Alert, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import {auth} from "../Firebase/Firebase.config"
@@ -37,7 +37,11 @@ const LoginScreen = () => {
       Alert.alert("Invalid User")
   }})
 }
-  return <Center w="100%">
+  return (
+    <>
+  <StatusBar barStyle={"dark-content"}
+        backgroundColor="#F0F0F0"/>
+  <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
         color: "warmGray.50"
@@ -83,7 +87,9 @@ const LoginScreen = () => {
           </HStack>
         </VStack>
       </Box>
-    </Center>;
+    </Center>
+    </>
+  )
 };
 
     export default () => {

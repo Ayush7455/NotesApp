@@ -1,10 +1,14 @@
 import  {React,useState} from "react";
 import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, Center, NativeBaseProvider } from "native-base";
-import {Alert,ActivityIndicator} from "react-native"
+import {Alert,ActivityIndicator, StatusBar} from "react-native"
 import {sendPasswordResetEmail} from "firebase/auth"
 import {auth} from "../Firebase/Firebase.config"
+import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
 
 const ForgetPasswordScreen = () => {
+  const navigation=useNavigation()
     const [email,setEmail]=useState("")
   const [loading,setLoading]=useState("")
   const ResetPass=()=>{
@@ -27,7 +31,14 @@ const ForgetPasswordScreen = () => {
     }
     
 }
-  return <Center w="100%">
+  return (
+  <>    
+  <StatusBar barStyle={"dark-content"}
+        backgroundColor="#F0F0F0"/>
+    <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
+  <AntDesign name="arrowleft" size={24} color="black" />
+  </TouchableOpacity>
+  <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
         color: "warmGray.50"
@@ -52,8 +63,10 @@ const ForgetPasswordScreen = () => {
 }
         </VStack>
       </Box>
-    </Center>;
-};
+    </Center>
+    </>
+    )
+}
 
     export default () => {
         return (
