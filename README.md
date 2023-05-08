@@ -75,3 +75,17 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 <kbd>
 <img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010125.jpg?raw=true" height="540" >
 </kbd>
+
+#### Dark Notes Screen
+
+
+<kbd>
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010138.jpg?raw=true" height="540" >
+</kbd>
+
+#### Dark Drawer Navigator Notes Screen
+
+
+<kbd>
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010125.jpg?raw=true" height="540" >
+</kbd>
