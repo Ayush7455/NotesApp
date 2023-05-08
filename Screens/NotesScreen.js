@@ -40,16 +40,16 @@ const NotesScreen=()=>{
 
     return(
 
-    <SafeAreaView style={{alignItems:"center",height:"100%"}}>
-       <StatusBar barStyle={"dark-content"}
-        backgroundColor="#F0F0F0"/>
+    <SafeAreaView style={{alignItems:"center",height:"100%",backgroundColor:isDarkModeOn?"black":"white"}}>
+       <StatusBar barStyle={isDarkModeOn?"light-content":"dark-content"}
+        backgroundColor={isDarkModeOn?"black":"white"}/>
         <View style={{flexDirection:"row",alignItems:"center",marginBottom:20}}>
-        <TouchableOpacity onPress={() => navigation.openDrawer()} style={{backgroundColor:"black",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10,marginRight:"5%"}}>
-        <Entypo name="menu" size={24} color="white" />
+        <TouchableOpacity onPress={() => navigation.openDrawer()} style={{backgroundColor:isDarkModeOn?"white":"black",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10,marginRight:"5%"}}>
+        <Entypo name="menu" size={24} color={isDarkModeOn?"black":"white"} />
             </TouchableOpacity>
-            <Text style={{color:"black",fontSize:40,marginRight:"40%"}}>Notes</Text>
-            <TouchableOpacity onPress={()=>{navigation.navigate("SearchScreen",{notes:notes})}} style={{backgroundColor:"black",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10}}>
-            <AntDesign name="search1" size={24} color="white" />
+            <Text style={{color:isDarkModeOn?"white":"black",fontSize:40,marginRight:"40%"}}>Notes</Text>
+            <TouchableOpacity onPress={()=>{navigation.navigate("SearchScreen",{notes:notes})}} style={{backgroundColor:isDarkModeOn?"white":"black",height:40,width:40,alignItems:"center",justifyContent:"center",borderRadius:10}}>
+            <AntDesign name="search1" size={24} color={isDarkModeOn?"black":"white"} />
             </TouchableOpacity>
            
         </View>
@@ -58,8 +58,8 @@ const NotesScreen=()=>{
         renderItem={({item}) => <NoteItem note={item}/>}
         keyExtractor={item => item.uniqueId}
       />
-        <TouchableOpacity onPress={()=>{navigation.navigate("AddNoteScreen")}} style={{backgroundColor:"black",height:60,width:60,alignItems:"center",justifyContent:"center",borderRadius:30,position:"absolute",bottom:40,right:"6%",elevation:10}}>
-        <AntDesign name="plus" size={24} color="white" />
+        <TouchableOpacity onPress={()=>{navigation.navigate("AddNoteScreen")}} style={{backgroundColor:isDarkModeOn?"white":"black",height:60,width:60,alignItems:"center",justifyContent:"center",borderRadius:30,position:"absolute",bottom:40,right:"6%",elevation:10}}>
+        <AntDesign name="plus" size={24} color={isDarkModeOn?"black":"white"} />
             </TouchableOpacity>
 
     </SafeAreaView>

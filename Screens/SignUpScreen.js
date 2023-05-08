@@ -126,7 +126,7 @@ const SignUpScreen = () => {
 export default () => {
   return (
     <NativeBaseProvider>
-      <Center flex={1} px="3">
+      <Center flex={1} bgColor={"white"} px="3">
         <SignUpScreen />
       </Center>
     </NativeBaseProvider>

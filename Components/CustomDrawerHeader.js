@@ -6,8 +6,11 @@ import { AntDesign } from '@expo/vector-icons';
 import { auth } from "../Firebase/Firebase.config"
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { useContext } from 'react';
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 const CustomDrawerHeader = (props) => {
+  const isDarkModeOn = useContext(DarkModeContext);
   const navigation = useNavigation();
   const [displayName, setDisplayName] = useState("");
 
@@ -16,7 +19,7 @@ const CustomDrawerHeader = (props) => {
     if (currentUser) {
       setDisplayName(currentUser.email);
     }
-  }, []);
+  });
 
   const handleLogout = () => {
     auth.signOut().then(() => {
@@ -31,21 +34,20 @@ const CustomDrawerHeader = (props) => {
       props.toggleDarkMode();
     };
 
-
   return (
     <NativeBaseProvider>
-      <View style={{ padding: 16 }}>
-        <Text style={{ fontSize: 40 }}>Notes App</Text>
-        <Text style={{ fontSize: 20, marginTop: "2%" }}>Welcome, {displayName}</Text>
+      <View style={{ padding: 16,backgroundColor:isDarkModeOn?"black":"white",height:"100%" }}>
+        <Text style={{ fontSize: 40 ,color:isDarkModeOn?"white":"black"}}>Notes App</Text>
+        <Text style={{ fontSize: 20, marginTop: "2%",color:isDarkModeOn?"white":"black" }}>Welcome, {displayName}</Text>
         <HStack alignItems="center" space={4} style={{ marginTop: "10%" }}>
-          <Ionicons name="moon" size={24} color="black" />
-          <Text style={{ fontSize: 15 }}>Dark Mode</Text>
+          <Ionicons name="moon" size={24} color={isDarkModeOn?"white":"black"} />
+          <Text style={{ fontSize: 15,color:isDarkModeOn?"white":"black" }}>Dark Mode</Text>
           <Switch onValueChange={handleToggleDarkMode} size="md" />
         </HStack>
         <TouchableOpacity onPress={handleLogout}>
           <HStack alignItems="center" space={4} style={{ marginTop: "10%" }}>
-            <AntDesign name="logout" size={24} color="black" />
-            <Text style={{ fontSize: 15 }}>Logout</Text>
+            <AntDesign name="logout" size={24} color={isDarkModeOn?"white":"black"} />
+            <Text style={{ fontSize: 15,color:isDarkModeOn?"white":"black" }}>Logout</Text>
           </HStack>
         </TouchableOpacity>
       </View>

@@ -44,9 +44,9 @@ const SearchScreen = () => {
   };
 
   return (
-    <SafeAreaView>
-      <StatusBar barStyle={"dark-content"}
-        backgroundColor="#F0F0F0"/>
+    <SafeAreaView style={{height:"100%",width:"100%",backgroundColor:isDarkModeOn?"black":"white"}}>
+      <StatusBar barStyle={isDarkModeOn?"light-content":"dark-content"}
+        backgroundColor={isDarkModeOn?"black":"white"}/>
       <View
         style={{
           justifyContent: "center",
@@ -54,7 +54,7 @@ const SearchScreen = () => {
         }}
       >
         <TouchableOpacity onPress={()=>navigation.goBack()} style={{alignSelf:"flex-start",padding:"2%",marginBottom:"4%",marginTop:"3%"}}>
-        <AntDesign name="arrowleft" size={24} color="black" />
+        <AntDesign name="arrowleft" size={24} color={isDarkModeOn?"white":"black"} />
         </TouchableOpacity>
         <View
           style={{

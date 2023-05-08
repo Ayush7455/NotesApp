@@ -54,25 +54,23 @@ const ModifyNotesScreen = () => {
   return (
   
   <>
-  <StatusBar barStyle={"dark-content"}
-        backgroundColor="#F0F0F0"/>
+ <StatusBar barStyle={isDarkModeOn?"light-content":"dark-content"}
+        backgroundColor={isDarkModeOn?"black":"white"}/>
   <TouchableOpacity onPress={()=>navigation.goBack()} style={{position:"absolute",top:20,alignSelf:"flex-start",padding:"10%"}}>
-       <AntDesign name="arrowleft" size={24} color="black" />
+  <AntDesign name="arrowleft" size={24} color={isDarkModeOn?"white":"black"} />
        </TouchableOpacity>
   <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
-        <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
-        color: "warmGray.50"
-      }}>
+      <Text style={{fontSize:21,color:isDarkModeOn?"white":"black"}}>
           Modify Note
-        </Heading>
+        </Text>
 
         <VStack space={5} mt="5">
          <View>
-            <TextInput placeholder="Title" multiline={true} style={{fontSize:30}} maxLength={20} onChangeText={(text)=>setTitle(text)}></TextInput>
+         <TextInput placeholder="Title" multiline={true} style={{fontSize:30,color:isDarkModeOn?"white":"black"}} maxLength={20} onChangeText={(text)=>setTitle(text)} value={title} placeholderTextColor={"gray"}></TextInput>
          </View>
          <View>
-            <TextInput placeholder="Description" multiline={true} style={{fontSize:20}} maxLength={200}onChangeText={(text)=>setDescription(text)}></TextInput>
+         <TextInput placeholder="Description" multiline={true} style={{fontSize:20,color:isDarkModeOn?"white":"black"}} color={isDarkModeOn?"white":"black"} maxLength={200}onChangeText={(text)=>setDescription(text)} value={description} placeholderTextColor={"gray"}></TextInput>
          </View>
          <Box maxW="300">
         <Select selectedValue={priority} minWidth="200" accessibilityLabel="Choose Priority" placeholder="Choose Priority" _selectedItem={{
@@ -96,9 +94,10 @@ const ModifyNotesScreen = () => {
 };
 
     export default () => {
+      const isDarkModeOn = useContext(DarkModeContext);
         return (
           <NativeBaseProvider>
-            <Center flex={1} px="3">
+            <Center bgColor={isDarkModeOn?"black":"white"} flex={1} px="3">
                 <ModifyNotesScreen />
             </Center>
           </NativeBaseProvider>
