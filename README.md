@@ -48,7 +48,7 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 
 
 <kbd>
-<img src="https://raw.githubusercontent.com/Ayush7455/Screenshots/main/Screenshot_20230209_004636.jpg" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010107.jpg?raw=true" height="540" >
 </kbd>
 
 
@@ -59,19 +59,19 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 <img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010021.jpg?raw=true" height="540" >
 </kbd>
 
-#### Chat Screen
+#### Notes Content Screen
 
 
 <kbd>
-<img src="https://raw.githubusercontent.com/Ayush7455/Screenshots/main/Screenshot_20230209_005017.jpg" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010016(1).jpg?raw=true" height="540" >
 </kbd>
 
 
 
 
-#### All Chats Screen
+#### Modify Notes Screen
 
 
 <kbd>
-<img src="https://raw.githubusercontent.com/Ayush7455/Screenshots/main/Screenshot_20230209_005003.jpg" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010125.jpg?raw=true" height="540" >
 </kbd>
