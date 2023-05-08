@@ -87,5 +87,5 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 
 
 <kbd>
-<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010125.jpg?raw=true" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010133(1).jpg?raw=true" height="540" >
 </kbd>
