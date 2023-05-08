@@ -5,6 +5,17 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 * Notes Management: After logging in, users can create, view, update, and delete their notes. Each note can have a title, description, and priority level (high, medium, or low).
 * Dark Mode: The app includes a dark mode option, which can be toggled in the settings screen.
 * Priority-based Rendering: The notes are rendered in a FlatList component, with high-priority notes appearing at the top in red color, medium-priority notes in yellow, and low-priority notes in green.
+
+### Features
+* Download the code files
+* install expo cli
+* install node
+* open the folder in vs code
+* run "npm start" in terminal
+
+### NoteApp apk file
+https://drive.google.com/file/d/1rcJUHykdKoZp3b4BnfnI_lyaxYiotr_v/view?usp=sharing
+
 ### Screenshots
 #### Login Screen
 
