@@ -8,8 +8,8 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 
 
 ### Optional Features
-* Dark Mode: The app includes a dark mode option, which can be toggled in the settings screen.
-* Priority-based Rendering: The notes are rendered in a FlatList component, with high-priority notes appearing at the top in red color, medium-priority notes in yellow, and low-priority notes in green.
+* Dark Mode
+* Priority-based Rendering
 
 ### Installation
 * Download the code files
