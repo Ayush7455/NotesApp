@@ -1,10 +1,10 @@
 # Notes App
 This is a mobile application built with React Native, Expo, and Firebase. It allows users to create, view, update, and delete notes after logging in and registering in the app. The app also consists of dark mode and the notes are rendered through FlatList along with priority assigned to each note item. Note with high priority appears as red color and appears at the top and med is yellow and low is green.
 ### Features
-*Authentication: The app provides a user authentication system through Firebase, allowing users to sign up, log in, and reset their passwords.
-*Notes Management: After logging in, users can create, view, update, and delete their notes. Each note can have a title, description, and priority level (high, medium, or low).
-*Dark Mode: The app includes a dark mode option, which can be toggled in the settings screen.
-*Priority-based Rendering: The notes are rendered in a FlatList component, with high-priority notes appearing at the top in red color, medium-priority notes in yellow, and *low-priority notes in green.
+* Authentication: The app provides a user authentication system through Firebase, allowing users to sign up, log in, and reset their passwords.
+* Notes Management: After logging in, users can create, view, update, and delete their notes. Each note can have a title, description, and priority level (high, medium, or low).
+* Dark Mode: The app includes a dark mode option, which can be toggled in the settings screen.
+* Priority-based Rendering: The notes are rendered in a FlatList component, with high-priority notes appearing at the top in red color, medium-priority notes in yellow, and low-priority notes in green.
 ### Screenshots
 #### Login Screen
 
