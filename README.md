@@ -13,10 +13,12 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 
 ### Installation
 * Download the code files
-* install expo cli
-* install node
-* open the folder in vs code
-* run "npm start" in terminal
+* Install Expo CLI
+* Install Node
+* Open the folder in vs code
+* Run "npm start" in terminal
+* Install Expo Go from Playstore
+* Scan the QR code in the terminal from the Expo Go app
 
 ### NotesApp apk file
 https://drive.google.com/file/d/1rcJUHykdKoZp3b4BnfnI_lyaxYiotr_v/view?usp=sharing
