@@ -3,7 +3,7 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 ### Features
 * Authentication: The app provides a user authentication system through Firebase, allowing users to sign up, log in, and reset their passwords.
 * Notes Management: After logging in, users can create, view, update, and delete their notes. Each note can have a title, description, and priority level (high, medium, or low).
-* Dark Mode: The app includes a dark mode option, which can be toggled in the settings screen.
+* Dark Mode: The app includes a dark mode option, which can be toggled in the Drawer Navigator menu.
 * Priority-based Rendering: The notes are rendered in a FlatList component, with high-priority notes appearing at the top in red color, medium-priority notes in yellow, and low-priority notes in green.
 
 
