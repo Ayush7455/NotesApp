@@ -24,7 +24,7 @@ This is a mobile application built with React Native, Expo, and Firebase. It all
 https://drive.google.com/file/d/1rcJUHykdKoZp3b4BnfnI_lyaxYiotr_v/view?usp=sharing
 
 ### Video Demo
-https://drive.google.com/file/d/1mrLza95WlgNIuctwuGH-CLUWuo_QwTmk/view?usp=sharing
+https://drive.google.com/file/d/1E14oQz-hzfCu86xd0ZHlsc2jGWR1OXi_/view?usp=sharing
 
 ### Screenshots
 #### Login Screen
