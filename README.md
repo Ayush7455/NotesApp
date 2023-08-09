@@ -55,14 +55,14 @@ https://drive.google.com/file/d/1mrLza95WlgNIuctwuGH-CLUWuo_QwTmk/view?usp=shari
 
 
 <kbd>
-<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010010.jpg?raw=true" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230809_192738.jpg?raw=true" height="540">
 </kbd>
 
 #### Search Screen
 
 
 <kbd>
-<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010032.jpg?raw=true" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230809_192746.jpg?raw=true" height="540" >
 </kbd>
 
 #### Add Note Screen
@@ -77,7 +77,7 @@ https://drive.google.com/file/d/1mrLza95WlgNIuctwuGH-CLUWuo_QwTmk/view?usp=shari
 
 
 <kbd>
-<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010021.jpg?raw=true" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230809_192753.jpg?raw=true" height="540" >
 </kbd>
 
 #### Notes Content Screen
@@ -101,12 +101,12 @@ https://drive.google.com/file/d/1mrLza95WlgNIuctwuGH-CLUWuo_QwTmk/view?usp=shari
 
 
 <kbd>
-<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010138.jpg?raw=true" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230809_192803.jpg?raw=true" height="540" >
 </kbd>
 
 #### Dark Drawer Navigator Notes Screen
 
 
 <kbd>
-<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230509_010133(1).jpg?raw=true" height="540" >
+<img src="https://github.com/Ayush7455/Screenshots/blob/main/Screenshot_20230809_192807.jpg?raw=true" height="540" >
 </kbd>
